@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://ccreater.top:61111/forums?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+server:
+  port: 8080
+  servlet:
+    context-path: /meeting
+
+
+
+mybatis:
+  mapper-locations: com/team/meeting/mapper/*.xml
+
