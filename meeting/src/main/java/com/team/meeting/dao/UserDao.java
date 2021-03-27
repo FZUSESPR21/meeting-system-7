@@ -10,13 +10,14 @@ import org.springframework.stereotype.Component;
 
 @Component(value = "userDao")
 public interface UserDao {
-    @Select("select username,roleid from users where username = #{username} and password = MD5(#{password})")
+    @Select("select id,username,roleid from users where username = #{username} and password = MD5(#{password})")
     @Results({
             @Result(property = "name",  column = "username"),
-            @Result(property = "roleId", column = "roleid")
+            @Result(property = "roleId", column = "roleid"),
+            @Result(property = "id", column = "id")
     })
     User getOne(String username,String password);
-    @Insert("INSERT INTO users(username,password) VALUES(#{username}, MD5(#{password})})")
+    @Insert("INSERT INTO users(username,password,roleid) VALUES(#{username}, MD5(#{password}), 0)")
     void insert(String username,String password);
 
 }

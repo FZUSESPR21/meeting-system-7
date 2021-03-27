@@ -5,6 +5,8 @@ import com.team.meeting.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author : ccreater
  * @ClassName : com.team.meeting.service.UserService
@@ -16,10 +18,11 @@ import org.springframework.stereotype.Component;
 public class UserService {
     @Autowired
     private UserDao userDao;
-    public boolean register(String username,String password){
+    public boolean register(String username, String password,int[] lids){
         try{
             userDao.insert(username,password);
         }catch(Exception e){
+            e.printStackTrace();
             return false;
         }
         return true;
@@ -29,6 +32,7 @@ public class UserService {
             User user = userDao.getOne(username,password);
             return user;
         }catch(Exception e){
+            e.printStackTrace();
             return null;
         }
 
