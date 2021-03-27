@@ -18,9 +18,8 @@
 </template>
 
 <script>
-  import axios from "axios";
 
-  export default {
+export default {
     data() {
       return {
         form: {
@@ -76,7 +75,7 @@
   #root-div{
     height: 100%;
     width: 100%;
-    background-image: url("../assets/background.jpg");
+    background-image: url("../assets/logo.png");
   }
   .lword{
     font-size: 30px;
