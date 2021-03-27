@@ -16,4 +16,4 @@ mybatis:
   mapper-locations: com/team/meeting/mapper/*.xml
 
 develop:
-  frontendPath: /srv/teamwork/frontend/
+  frontendPath: file:///srv/teamwork/frontend/
