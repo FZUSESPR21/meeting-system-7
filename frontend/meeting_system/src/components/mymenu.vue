@@ -10,9 +10,9 @@
       active-text-color="#ffd04b"
       style="min-height: 800px"
     >
-      <el-menu-item v-for="i in lids" :index="i.toString()">
+      <el-menu-item v-for="(item,index) in lids">
         <i class="el-icon-document"></i>
-        {{topics[i - 1]}}
+        {{topics[index]}}
       </el-menu-item>
     </el-menu>
   </div>
