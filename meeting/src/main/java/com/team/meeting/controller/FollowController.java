@@ -37,4 +37,13 @@ public class FollowController {
             return Result.error(1,"用户未登录");
         }
     }
+
+    @GetMapping("/allCount")
+    public Result<Integer> getAllOrdinaryUserCount() {
+        if (user != null) {
+            return Result.success(service.countAllOdinaryUsers());
+        }else {
+            return Result.error(1,"用户未登录");
+        }
+    }
 }

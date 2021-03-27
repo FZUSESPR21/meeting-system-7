@@ -16,4 +16,7 @@ public interface MFollowDao extends JpaRepository<MUser,Integer> {
 
     @Query(value = "select count(distinct uid) from follows where lid = ?1",nativeQuery = true)
     Integer countDistinctUidByLid(Integer lid);
+
+    @Query(value = "select count(*) from users where roleid =0 ",nativeQuery = true)
+    Integer countAllOrdinaryUser();
 }

@@ -23,4 +23,8 @@ public class MFollowService {
     public Integer countUserByLid(Integer lid) {
         return mFollowDao.countDistinctUidByLid(lid);
     }
+
+    public Integer countAllOdinaryUsers(){
+        return mFollowDao.countAllOrdinaryUser();
+    }
 }
