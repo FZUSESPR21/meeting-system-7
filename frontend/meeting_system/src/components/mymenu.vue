@@ -8,12 +8,11 @@
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
-          @select="handleSelect"
+          @select="handleSelect"> 
           <el-menu-item v-for="i in lids" :index="i.toString()">
             <i class="el-icon-document"></i>
             {{topics[i - 1]}}
           </el-menu-item>
-
         </el-menu>
       </el-col>
     </el-row>
