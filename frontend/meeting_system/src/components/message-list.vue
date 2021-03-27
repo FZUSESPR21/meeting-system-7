@@ -46,8 +46,8 @@ export default {
 <style scoped>
 
 #message-list{
-  margin-top: 50px;
-  min-height: 800px;
+  margin-top: 60px;
+  min-height: 870px;
   background-color: #B3C0D1;
 }
 

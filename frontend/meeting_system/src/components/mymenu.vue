@@ -1,6 +1,6 @@
 <template>
   <div id="my-menu">
-    <h2>校友论坛</h2>
+    <div class="forumTitle">校友论坛</div>
     <el-menu
       default-active="1"
       class="el-menu-vertical-demo"
@@ -8,7 +8,7 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
-      style="min-height: 800px"
+      style="min-height: 870px;"
     >
       <el-menu-item v-for="(item,index) in lids" :key="index" >
         <i class="el-icon-document"></i>
@@ -43,5 +43,13 @@ export default {
 </script>
 
 <style>
-
+.forumTitle
+{
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
 </style>
