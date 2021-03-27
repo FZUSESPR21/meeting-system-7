@@ -10,9 +10,9 @@
       active-text-color="#ffd04b"
       style="min-height: 800px"
     >
-      <el-menu-item v-for="(item,index) in lids">
+      <el-menu-item v-for="(item,index) in lids" :key="index" >
         <i class="el-icon-document"></i>
-        {{topics[index]}}
+        <router-link :to="{name:'Main',params:{lid:3}}" style="text-decoration: none !important; color: white">{{topics[index]}}</router-link>
       </el-menu-item>
     </el-menu>
   </div>

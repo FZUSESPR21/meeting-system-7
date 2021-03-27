@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <el-button type = "warning">weihua</el-button>
     <router-view/>
   </div>
 </template>

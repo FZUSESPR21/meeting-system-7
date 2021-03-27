@@ -13,7 +13,7 @@
         </el-header>
 <!--        /* 主体 */-->
         <el-main>
-          Main
+          <router-view/>
         </el-main>
 <!--        /*页尾*/-->
         <el-footer>
@@ -32,7 +32,6 @@
 <script>
 import MessageList from "../components/message-list"
 import MyMenu from "../components/mymenu";
-
 export default {
   name: 'Index',
   components: {MessageList, MyMenu}
