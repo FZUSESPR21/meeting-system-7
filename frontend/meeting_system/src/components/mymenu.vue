@@ -43,6 +43,10 @@ export default {
       type:Array,
       default:()=>[]
     },
+    fatherGetMesfunc: {
+      type: Function,
+      default: null,
+    },
   }
 }
 </script>

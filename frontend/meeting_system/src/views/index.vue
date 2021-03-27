@@ -4,7 +4,7 @@
     <el-container>
 <!--      /*左侧边栏*/-->
       <el-aside width="200px">
-        <MyMenu ></MyMenu>
+        <MyMenu :lids = lids :getMesFunc = getMes></MyMenu>  //传参
       </el-aside>
       <el-container>
         <el-header>
@@ -38,7 +38,24 @@ export default {
   data(){
     return{
       userName:this.$route.query.userName,
-      lids:this.$route.query.lids.split(',')
+      lids:this.$route.query.lids,
+      topic_mes:[]   //议题信息
+    }
+  },
+  methods: {
+    getMes(lid){  //从后端调用api获取某个分论坛的议题信息
+      const that = this;
+      //向后端发送axios请求
+      this.axios.post('/forum',{
+        lid: that.lid
+      }).then(function (respond){
+        let code = respond.data.code;
+        if(code == 0){  //成功
+          that.topic_mes = respond.data.mes;
+        }
+      }).catch(function (error){
+        console.log(error);
+      });
     }
   }
 }
