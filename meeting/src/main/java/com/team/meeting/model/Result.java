@@ -9,9 +9,9 @@ import java.util.List;
  * @date : 2021-03-27 10:54:57
  * Copyright  2021 user. All rights reserved.
  */
-public class Result {
+public class Result<T> {
     private int code;
-    private List<Object> data;
+    private T data;
     private String message;
 
     public int getCode() {
@@ -22,11 +22,11 @@ public class Result {
         this.code = code;
     }
 
-    public List<Object> getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(List<Object> data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -36,5 +36,33 @@ public class Result {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Result() {
+    }
+
+    public Result(T data) {
+        this.data = data;
+    }
+
+    public static Result success() {
+        Result result = new Result<>();
+        result.setCode(0);
+        result.setMessage("成功");
+        return result;
+    }
+
+    public static <T> Result<T> success(T data) {
+        Result<T> result = new Result<>(data);
+        result.setCode(0);
+        result.setMessage("成功");
+        return result;
+    }
+
+    public static Result error(int code, String msg) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setMessage(msg);
+        return result;
     }
 }
