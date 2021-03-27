@@ -39,11 +39,19 @@ export default {
             'username': that.userName,
             'password': that.password
           }).then(function (respond){
-
+              let code = respond.data.code;
+              if(code == '0') {
+                let myLids = respond.data.data;
+                for (let i = 0; i < myLids.length; i++)
+                  that.lids = that.lids + i + ',';
+              }
+              else
+              {
+                alert("账号，密码不匹配！");
+              }
           }).catch(function (error){
             console.log(error);
           });
-          alert("登录成功");
           //页面跳转
           this.$router.push({
           path:'/index',
@@ -69,7 +77,6 @@ export default {
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-
   }
   #root-div{
     height: 100%;
