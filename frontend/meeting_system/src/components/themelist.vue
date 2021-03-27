@@ -4,7 +4,7 @@
     :data="tableData"
     border
     style="width: 801px;height:850px;margin: 0 auto"
-    :header-row-style="{'height': '100px','color':'red'}"
+    :header-row-style="{'height': '100px'}"
     >
     <el-table-column
       prop="id"

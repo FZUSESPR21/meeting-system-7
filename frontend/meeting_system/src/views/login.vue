@@ -25,7 +25,7 @@ export default {
         form: {
           userName: '',
           password: '',
-          lids: ''   //此人关注的所有论坛
+          lids: ''  //此人关注的所有论坛
         }
       }
     },

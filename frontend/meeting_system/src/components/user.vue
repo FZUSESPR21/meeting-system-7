@@ -3,27 +3,17 @@
   <el-table
     :data="tableData"
     border
-    style="width: 100%">
+    style="width: 100%;max-height: 300px"
+  max-height="200px">
     <el-table-column
-      fixed
       prop="uid"
       label="用户编号"
-      width="210">
+      width="420">
     </el-table-column>
     <el-table-column
       prop="uname"
       label="用户姓名"
-      width="210">
-    </el-table-column>
-    <el-table-column
-      prop="actress"
-      label="用户角色"
-      width="210">
-    </el-table-column>
-    <el-table-column
-      prop="meeting"
-      label="参加会议"
-      width="209">
+      width="419">
     </el-table-column>
   </el-table>
   </div>
@@ -45,6 +35,7 @@ export default {
         actress: 'xxx',
         meeting: 'xxx'
       },
+
         {
           uid: '001',
           uname: 'xxx',
@@ -56,7 +47,13 @@ export default {
           uname: 'xxx',
           actress: 'xxx',
           meeting: 'xxx'
-        }]
+        },
+        {
+          uid: '001',
+          uname: 'xxx',
+          actress: 'xxx',
+          meeting: 'xxx'
+        }],
     }
   }
 }
