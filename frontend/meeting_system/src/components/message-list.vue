@@ -25,7 +25,7 @@
 export default {
   name: "message-list",
   props:{
-
+     lids:"",
   },
   data() {
     return {

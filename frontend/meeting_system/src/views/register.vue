@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="login">
-      <div class="rword"></div>
+      <div class="rword">注册</div>
       <el-form ref="form" :model="ruleForm" label-width="80px">
           <el-form-item class="form-item">
             <el-input v-model="ruleForm.userName" placeholder="请输入您的账号" class="form-input"></el-input>
@@ -85,6 +85,8 @@
     transform: translate(-50%,-50%);
   }
   .rword{
+    display: flex;
+    justify-content: center;
     font-size: 30px;
     font-weight: 800;
   }
@@ -95,7 +97,9 @@
     right:40px;
   }
   .register{
-    margin-top:40px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
   }
   .link{
     display: inline-block;

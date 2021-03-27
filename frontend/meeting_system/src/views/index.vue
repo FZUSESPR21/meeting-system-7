@@ -4,7 +4,7 @@
     <el-container>
 <!--      /*左侧边栏*/-->
       <el-aside width="200px">
-        <MyMenu :userName="userName" :lids="lids"></MyMenu>
+        <MyMenu ></MyMenu>
       </el-aside>
       <el-container>
         <el-header>

@@ -39,8 +39,10 @@ export default {
     }
   },
   props:{
-    'userName':String,
-    'lids':String,
+    'newlids':{
+      type:Array,
+      default:()=>[]
+    },
   }
 }
 </script>
