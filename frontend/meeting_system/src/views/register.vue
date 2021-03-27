@@ -41,7 +41,8 @@
           checked3: false,
           checked4: false,
           checked5: false,
-        }
+        },
+        lids: []
       }
     },
     methods: {
@@ -49,21 +50,37 @@
         const that = this;
         if(this.ruleForm.userName!=""&&this.ruleForm.pass!=""&&this.ruleForm.pass==this.ruleForm.checkPass)
         {
+          if(that.checked1 == true)
+            that.lids.push(1);
+          if(that.checked2 == true)
+            that.lids.push(2);
+          if(that.checked3 == true)
+            that.lids.push(3);
+          if(that.checked4 == true)
+            that.lids.push(4);
+          if(that.checked5 == true)
+            that.lids.push(5);
+
           //向后端发送axios请求
           this.axios.post('/register',{
             'username': that.userName,
-            'password': that.password
+            'password': that.password,
+            'lids': that.lids
           }).then(function (respond){
-
+            if(respond.data.code == 0)
+            {
+              alert("注册成功！请返回登陆！");
+              that.route.push('/login');
+            }
           }).catch(function (error){
             console.log(error);
           });
-          alert("注册成功");
+          // alert("注册成功");
           //向后端发送axios数据
           //将用户信息存在cookie当中
         }
         else{
-          alert("注册失败")
+          alert("注册失败!请重试！")
         }
 
       },
