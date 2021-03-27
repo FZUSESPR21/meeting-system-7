@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @author : ccreater
  * @ClassName : com.team.meeting.controller.UserController
@@ -25,11 +27,14 @@ public class UserController {
     @Autowired
     private FollowService followService;
     @RequestMapping(path = "/login",method=RequestMethod.POST)
-    public Result<Follows> login(@RequestParam String username,@RequestParam String password){
+    public Result<Follows> login(@RequestParam String username, @RequestParam String password, HttpSession session){
        User user = userService.login(username,password);
        if(user == null){
            return Result.error(1,"账号或密码错误");
+       }else{
+           session.setAttribute("user",user);
        }
+
        int lids [] = followService.getFollows(user.getId());
        return Result.success(new Follows(lids));
     }
