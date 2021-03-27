@@ -24,7 +24,9 @@
 <script>
 export default {
   name: "message-list",
-  // props: ["messages"],
+  props:{
+     lids:"",
+  },
   data() {
     return {
       reverse: true,
@@ -46,9 +48,14 @@ export default {
 <style scoped>
 
 #message-list{
-  margin-top: 60px;
-  min-height: 870px;
-  background-color: #B3C0D1;
-}
 
+  min-height: 990px;
+  background-color: #e8ebe4;
+  position: relative;
+}
+.block{
+  position: absolute;
+  top:100px;
+  left: 5px;
+}
 </style>

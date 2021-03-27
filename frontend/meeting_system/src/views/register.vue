@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="login">
-      <div class="rword"></div>
+      <div class="rword">注册</div>
       <el-form ref="form" :model="ruleForm" label-width="80px">
           <el-form-item class="form-item">
             <el-input v-model="ruleForm.userName" placeholder="请输入您的账号" class="form-input"></el-input>
@@ -12,14 +12,15 @@
           <el-form-item  prop="checkPass" class="form-item" >
             <el-input  v-model="ruleForm.checkPass" show-password autocomplete="off" placeholder="请再次输入您的密码" @change="checkRight"></el-input>
           </el-form-item>
-          <div class='word'>
-            选择您要关注的论坛
-          </div>
+
+          <div class='word'>请选择您要关注的论坛</div>
+        <div class="content">
             <el-checkbox v-model="ruleForm.checked1" >神经网络</el-checkbox>
             <el-checkbox v-model="ruleForm.checked2" >人工智能</el-checkbox>
             <el-checkbox v-model="ruleForm.checked3" >动态感知</el-checkbox>
             <el-checkbox v-model="ruleForm.checked4" >机器学习</el-checkbox>
             <el-checkbox v-model="ruleForm.checked5" >计算机视觉</el-checkbox>
+        </div>
             <br/>
           <el-button type="primary" @click="onRegister" class="register">注册</el-button>
         </el-form>
@@ -79,12 +80,13 @@
   #login{
     position: absolute;
     width:50%;
-    margin: 0 auto;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
   }
   .rword{
+    display: flex;
+    justify-content: center;
     font-size: 30px;
     font-weight: 800;
   }
@@ -94,8 +96,14 @@
     position: relative;
     right:40px;
   }
+  .content{
+    display: flex;
+    justify-content: center;
+  }
   .register{
-    margin-top:40px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
   }
   .link{
     display: inline-block;
@@ -103,6 +111,8 @@
     font-size: 10px;
   }
   .word{
+    display: flex;
+    justify-content: center;
     position: relative;
     left:4em;
     font-size: 10px;

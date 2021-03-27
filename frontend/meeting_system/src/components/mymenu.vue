@@ -8,7 +8,7 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
-      style="min-height: 870px;"
+      style="min-height: 930px;"
     >
       <el-menu-item v-for="(item,index) in lids" :key="index" >
         <i class="el-icon-document"></i>
@@ -21,7 +21,6 @@
 <script>
 export default {
   mame: 'my-menu',
-  // props: ['lids'],
   data(){
     return {
       topics: [
@@ -38,6 +37,12 @@ export default {
     handleSelect(key, keyPath){
       console.log(key, keyPath);
     }
+  },
+  props:{
+    'newlids':{
+      type:Array,
+      default:()=>[]
+    },
   }
 }
 </script>
@@ -51,5 +56,6 @@ export default {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
+  background-color: #e8ebe4;
 }
 </style>
