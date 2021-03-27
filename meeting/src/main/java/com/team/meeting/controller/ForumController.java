@@ -2,6 +2,7 @@ package com.team.meeting.controller;
 
 import com.team.meeting.model.Forum;
 import com.team.meeting.model.Result;
+import com.team.meeting.model.User;
 import com.team.meeting.service.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,14 +22,19 @@ import java.util.List;
 @RequestMapping("/forums")
 public class ForumController {
 
-    Integer uid;
-    Integer roleid;
+    User user;
 
     @Resource
     private ForumService forumService;
 
-//    @GetMapping("/list")
-//    public Result<List<Forum>> findRelatedForums() {
-//        return
-//    }
+    @GetMapping
+    public Result<List<Forum>> findForumsByUidAndRoleId() {
+        Result<List<Forum>> result;
+        if (user != null) {
+            result = Result.success(forumService.findForumsByUidAndRoleId(user.getId(),user.getRoleId()));
+        }else {
+            result = Result.error(1,"用户未登录");
+        }
+        return result;
+    }
 }

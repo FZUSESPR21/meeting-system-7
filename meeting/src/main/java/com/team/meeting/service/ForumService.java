@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,6 +24,18 @@ public class ForumService {
 
     public List<Forum> findSubChairmanForums(Integer roleId) {
         return forumDao.findSubChairmanForums(roleId);
+    }
+
+    public List<Forum> findForumsByUidAndRoleId(Integer uid,Integer roleid) {
+        List<Forum> forums = new ArrayList<>();
+        if(roleid == 0){
+            forums = forumDao.findOrdinaryUserFollowForums(uid);
+        }else if (roleid == 1 || roleid == 2) {
+            forums = forumDao.findAll();
+        }else if (roleid > 2) {
+            forums = forumDao.findSubChairmanForums(roleid);
+        }
+        return forums;
     }
 
 }

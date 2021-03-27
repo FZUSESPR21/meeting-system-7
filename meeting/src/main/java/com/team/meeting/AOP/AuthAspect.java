@@ -24,7 +24,7 @@ import java.lang.reflect.Field;
 public class AuthAspect {
     @Autowired
     private HttpSession session;
-    @Around("execution(* com.team.meeting.controller.*.*(..))")
+    @Before("execution(* com.team.meeting.controller.*.*(..))")
     public void setRoleId(JoinPoint pjp){
         Object obj = pjp.getTarget();
         Class clazz=obj.getClass();
