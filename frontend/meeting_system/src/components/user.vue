@@ -1,4 +1,5 @@
 <template>
+  <div style="margin-top: 30px">
   <el-table
     :data="tableData"
     border
@@ -7,32 +8,25 @@
       fixed
       prop="uid"
       label="用户编号"
-      width="400">
+      width="210">
     </el-table-column>
     <el-table-column
       prop="uname"
       label="用户姓名"
-      width="400">
+      width="210">
     </el-table-column>
     <el-table-column
       prop="actress"
       label="用户角色"
-      width="400">
+      width="210">
     </el-table-column>
     <el-table-column
       prop="meeting"
       label="参加会议"
-      width="400">
-    </el-table-column>
-    <el-table-column
-      fixed="right"
-      label="操作"
-      width="150">
-      <template slot-scope="scope">
-        <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-      </template>
+      width="209">
     </el-table-column>
   </el-table>
+  </div>
 </template>
 
 <script>
@@ -50,8 +44,22 @@ export default {
         uname: 'xxx',
         actress: 'xxx',
         meeting: 'xxx'
-      }]
+      },
+        {
+          uid: '001',
+          uname: 'xxx',
+          actress: 'xxx',
+          meeting: 'xxx'
+        },
+        {
+          uid: '001',
+          uname: 'xxx',
+          actress: 'xxx',
+          meeting: 'xxx'
+        }]
     }
   }
 }
 </script>
+<style>
+</style>

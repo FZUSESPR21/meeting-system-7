@@ -27,7 +27,7 @@ export default {
 </script>
 <style scoped>
 .mycard{
-  width:500px;
+  width:100%;
   height: 300px;
   position: relative;
 }

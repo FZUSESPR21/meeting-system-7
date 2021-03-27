@@ -32,6 +32,7 @@
 <script>
 import MessageList from "../components/message-list"
 import MyMenu from "../components/mymenu";
+
 export default {
   name: 'Index',
   components: {MessageList, MyMenu}
@@ -39,6 +40,11 @@ export default {
 </script>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 .el-header, .el-footer {
   background-color: aliceblue;
   color: #333;
@@ -57,7 +63,7 @@ export default {
   background-color: #E9EEF3;
   color: #333;
   text-align: center;
-  line-height: 160px;
+  line-height: 20px !important;
 }
 
 body > .el-container {
