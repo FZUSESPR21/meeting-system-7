@@ -1,4 +1,3 @@
-
 <template>
   <el-table
     :data="tableData"
