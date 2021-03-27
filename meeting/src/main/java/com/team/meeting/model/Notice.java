@@ -1,5 +1,8 @@
 package com.team.meeting.model;
 
+import java.text.SimpleDateFormat;
+
+
 /**
  * @author : yangyu
  * @ClassName : com.team.meeting.model.Notice
@@ -12,6 +15,13 @@ public class Notice {
     private Integer forumID;
     private String message;
     private Integer userID;
+    private String times ;
+
+    public Notice()
+    {
+        SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        times = tempDate.format(new java.util.Date());
+    }
 
     public Integer getId() {
         return id;
