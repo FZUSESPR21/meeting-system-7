@@ -19,13 +19,22 @@ public class FollowController {
     @Resource
     private MFollowService service;
     User user;
+
     @GetMapping("/users")
     public Result<List<MUser>> getAllUserByLid(@RequestParam Integer lid) {
-        return Result.success(service.findAllUsersByLid(lid));
+        if (user != null) {
+            return Result.success(service.findAllUsersByLid(lid));
+        }else {
+            return Result.error(1,"用户未登录");
+        }
     }
 
     @GetMapping("/count")
     public Result<Integer> getCountDistinctByLid(@RequestParam Integer lid) {
-        return Result.success(service.countUserByLid(lid));
+        if (user != null) {
+            return Result.success(service.countUserByLid(lid));
+        }else {
+            return Result.error(1,"用户未登录");
+        }
     }
 }
