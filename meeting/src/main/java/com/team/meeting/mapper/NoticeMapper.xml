@@ -4,5 +4,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.team.meeting.dao.NoticeDao">
-
+    <resultMap id="Notice" type="com.team.meeting.model.Notice">
+        <id column="id" property="id"></id>
+        <result column="lid" property="forumID"></result>
+        <result column="message" property="message"></result>
+        <result column="uid" property="userID"></result>
+        <result column="time" property="times"></result>
+    </resultMap>
+    <insert id="addNotice" keyProperty="id" useGeneratedKeys="true" parameterType="com.team.meeting.model.Notice">
+        insert into notifications(lid,message,uid,time)
+        values (#{forumID,jdbcType=INTEGER},#{message,jdbcType=VARCHAR},#{userID,jdbcType=INTEGER},
+        #{times,jdbcType=VARCHAR})
+    </insert>
+    <select id="queryNotice" resultMap="Notice">
+        select * from notifications where lid = #{forumID}
+    </select>
+    <select id="allNotice" resultMap="Notice">
+        select * from notifications
+    </select>
 </mapper>
