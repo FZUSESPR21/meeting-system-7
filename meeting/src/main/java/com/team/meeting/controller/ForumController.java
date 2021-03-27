@@ -27,7 +27,8 @@ public class ForumController {
     @Resource
     private ForumService forumService;
 
-    @GetMapping("/list")
-    public Result<List<Forum>> findRelatedForums() {
-    }
+//    @GetMapping("/list")
+//    public Result<List<Forum>> findRelatedForums() {
+//        return
+//    }
 }
