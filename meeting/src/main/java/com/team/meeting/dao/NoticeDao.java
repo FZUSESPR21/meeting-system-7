@@ -1,5 +1,9 @@
 package com.team.meeting.dao;
 
+import com.team.meeting.model.Notice;
+
+import java.util.List;
+
 /**
  * @author : yangyu
  * @ClassName : com.team.meeting.dao.NoticeDao
@@ -8,4 +12,7 @@ package com.team.meeting.dao;
  * Copyright  2021 user. All rights reserved.
  */
 public interface NoticeDao {
+    int addNotice(Notice notice);
+    List<Notice> queryNotice(Integer forumID);
+    List<Notice> allNotice();
 }
