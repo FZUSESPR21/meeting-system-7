@@ -4,10 +4,9 @@
     <el-container>
 <!--      /*左侧边栏*/-->
       <el-aside width="200px">
-        <MyMenu></MyMenu>
+        <MyMenu :userName="userName" :lids="lids"></MyMenu>
       </el-aside>
       <el-container>
-<!--        /*头部*/-->
         <el-header>
 
         </el-header>
@@ -35,7 +34,13 @@ import MyMenu from "../components/mymenu";
 
 export default {
   name: 'Index',
-  components: {MessageList, MyMenu}
+  components: {MessageList, MyMenu},
+  data(){
+    return{
+      userName:this.$route.query.userName,
+      lids:this.$route.query.lids.split(',')
+    }
+  }
 }
 </script>
 
@@ -46,12 +51,21 @@ export default {
   border: 0;
 }
 .el-header, .el-footer {
-  background-color: aliceblue;
+  background-color: #e8ebe4;
   color: #333;
   text-align: center;
   line-height: 60px;
 }
-
+.el-footer
+{
+  background-color: #545c64;
+  width: 100%;
+  margin-top: -20px;
+}
+.el-header
+{
+  width: 100% !important;
+}
 .el-aside {
   /*background-color: #D3DCE6;*/
   /*color: #333;*/
@@ -60,14 +74,13 @@ export default {
 }
 
 .el-main {
-  background-color: #E9EEF3;
+  background-color:;
   color: #333;
   text-align: center;
   line-height: 20px !important;
 }
 
 body > .el-container {
-  margin-bottom: 40px;
 }
 
 .el-container:nth-child(5) .el-aside,
@@ -77,5 +90,15 @@ body > .el-container {
 
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
+}
+.forumTitle
+{
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #fff;
 }
 </style>

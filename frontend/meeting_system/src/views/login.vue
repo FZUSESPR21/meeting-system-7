@@ -9,24 +9,23 @@
           <el-form-item class="form-item">
             <el-input v-model="form.password" placeholder="请输入您的密码" show-password></el-input>
           </el-form-item>
-          <el-button type="primary" @click="onLogin">登录</el-button>
+          <el-button class="lbutton" type="primary" @click="onLogin">登录</el-button>
           <br/>
-          <router-link to = '/register'>去注册</router-link>
+          <router-link class="link" to = '/register'>去注册</router-link>
         </el-form>
     </div>
   </div>
 </template>
 
 <script>
-  import axios from "axios";
 
-  export default {
+export default {
     data() {
       return {
         form: {
           userName: '',
           password: '',
-          libs: []   //此人关注的所有论坛
+          lids: ''  //此人关注的所有论坛
         }
       }
     },
@@ -51,7 +50,7 @@
           name:'userName',
           query: {
             'username': this.userName,
-            'libs': this.libs
+            'lids': this.lids
           }
       })
         }
@@ -76,9 +75,12 @@
   #root-div{
     height: 100%;
     width: 100%;
-    background-image: url("../assets/background.jpg");
+    background-image: url("../assets/logo.png");
   }
   .lword{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     font-size: 30px;
     font-weight: 800;
   }
@@ -88,8 +90,14 @@
     position: relative;
     right:40px;
   }
+  .lbutton{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
   .link{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
     font-size: 10px;
   }

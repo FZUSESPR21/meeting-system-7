@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '../views/index'
 import Main from '../views/main'
+import Login from '../views/login'
 Vue.use(Router)
 
 
@@ -19,6 +20,13 @@ export default new Router({
           props:true
         }
       ]
-    }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+    },
+
+
   ]
 })
