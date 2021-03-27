@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id = "root-div">
     <div id="login">
       <div class='lword'>登录</div>
       <el-form ref="form" :model="form" label-width="80px">
@@ -7,38 +7,51 @@
             <el-input v-model="form.userName" placeholder="请输入您的账号" class="form-input"></el-input>
           </el-form-item>
           <el-form-item class="form-item">
-            <el-input v-model="form.password" placeholder="请输入您的密码" class="form-input"></el-input>
+            <el-input v-model="form.password" placeholder="请输入您的密码" show-password></el-input>
           </el-form-item>
           <el-button type="primary" @click="onLogin">登录</el-button>
           <br/>
-          <a class="link">去注册</a>
+          <router-link to = '/register'>去注册</router-link>
         </el-form>
     </div>
   </div>
 </template>
 
 <script>
+  import axios from "axios";
+
   export default {
     data() {
       return {
         form: {
           userName: '',
-          password:'',
+          password: '',
+          libs: []   //此人关注的所有论坛
         }
       }
     },
     methods: {
       onLogin() {
-        if(this.form.userName!=""&&this.form.password!="")
+        const that = this;
+        if(this.form.userName!="" && this.form.password!="")
         {
           //向后端发送axios请求
+          this.axios.post('/login',{
+            'username': that.userName,
+            'password': that.password
+          }).then(function (respond){
+
+          }).catch(function (error){
+            console.log(error);
+          });
           alert("登录成功");
           //页面跳转
           this.$router.push({
-          path:'/',
+          path:'/index',
           name:'userName',
-          params: {
-              userName : this.form.userName
+          query: {
+            'username': this.userName,
+            'libs': this.libs
           }
       })
         }
@@ -58,6 +71,12 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+
+  }
+  #root-div{
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/background.jpg");
   }
   .lword{
     font-size: 30px;

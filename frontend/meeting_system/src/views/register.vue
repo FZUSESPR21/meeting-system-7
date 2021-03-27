@@ -7,21 +7,21 @@
             <el-input v-model="ruleForm.userName" placeholder="请输入您的账号" class="form-input"></el-input>
           </el-form-item>
           <el-form-item  prop="pass" class="form-item" >
-            <el-input type="password" v-model="ruleForm.pass" autocomplete="off" placeholder="请输入您的密码"></el-input>
+            <el-input  v-model="ruleForm.pass" show-password autocomplete="off" placeholder="请输入您的密码"></el-input>
           </el-form-item>
           <el-form-item  prop="checkPass" class="form-item" >
-            <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" placeholder="请再次输入您的密码" @change="checkRight"></el-input>
+            <el-input  v-model="ruleForm.checkPass" show-password autocomplete="off" placeholder="请再次输入您的密码" @change="checkRight"></el-input>
           </el-form-item>
           <div class='word'>
             选择您要关注的论坛
           </div>
-          <el-checkbox v-model="ruleForm.checked1" >神经网络</el-checkbox>
-          <el-checkbox v-model="ruleForm.checked2" >人工智能</el-checkbox>
-          <el-checkbox v-model="ruleForm.checked3" >动态感知</el-checkbox>
-          <el-checkbox v-model="ruleForm.checked4" >机器学习</el-checkbox>
-          <el-checkbox v-model="ruleForm.checked5" >计算机视觉</el-checkbox>
-          <br/>
-          <el-button type="primary" @click="onRegister" class="regist">注册</el-button>
+            <el-checkbox v-model="ruleForm.checked1" >神经网络</el-checkbox>
+            <el-checkbox v-model="ruleForm.checked2" >人工智能</el-checkbox>
+            <el-checkbox v-model="ruleForm.checked3" >动态感知</el-checkbox>
+            <el-checkbox v-model="ruleForm.checked4" >机器学习</el-checkbox>
+            <el-checkbox v-model="ruleForm.checked5" >计算机视觉</el-checkbox>
+            <br/>
+          <el-button type="primary" @click="onRegister" class="register">注册</el-button>
         </el-form>
     </div>
   </div>
@@ -45,9 +45,19 @@
     },
     methods: {
       onRegister:function() {
+        const that = this;
         if(this.ruleForm.userName!=""&&this.ruleForm.pass!=""&&this.ruleForm.pass==this.ruleForm.checkPass)
         {
-          alert("注册成功")
+          //向后端发送axios请求
+          this.axios.post('/register',{
+            'username': that.userName,
+            'password': that.password
+          }).then(function (respond){
+
+          }).catch(function (error){
+            console.log(error);
+          });
+          alert("注册成功");
           //向后端发送axios数据
           //将用户信息存在cookie当中
         }
@@ -58,7 +68,7 @@
       },
       checkRight:function(){
         if(this.ruleForm.pass!=this.ruleForm.checkPass)
-          alert("两次密码不匹配")
+          alert("两次密码不匹配");
         else
           {}
       }
@@ -84,7 +94,7 @@
     position: relative;
     right:40px;
   }
-  .regist{
+  .register{
     margin-top:40px;
   }
   .link{
