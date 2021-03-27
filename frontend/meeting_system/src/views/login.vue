@@ -66,7 +66,6 @@ export default {
   #login{
     position: absolute;
     width:50%;
-    margin: 0 auto;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
@@ -80,7 +79,6 @@ export default {
   .lword{
     display: flex;
     justify-content: center;
-    margin: 0 auto;
     font-size: 30px;
     font-weight: 800;
   }
