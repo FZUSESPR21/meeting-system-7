@@ -2,6 +2,7 @@ package com.team.meeting.controller;
 
 import com.team.meeting.model.Notice;
 import com.team.meeting.model.Result;
+import com.team.meeting.model.User;
 import com.team.meeting.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
+    User user;
 
     @GetMapping("list")
     public Result<List<Notice>> queryNotice(Integer forumID)
@@ -31,9 +33,17 @@ public class NoticeController {
     }
 
     @GetMapping("add")
-    public Result addNotice(Notice notice)
+    public Result addNotice(Integer lid,String msg)
     {
-        int roleID = 2;
+        Notice notice = new Notice();
+        notice.setForumID(lid);
+        notice.setMessage(msg);
+        notice.setUserID(1);
+        int roleID = 0;
+        if (user != null)
+        {
+            roleID = user.getRoleId();
+        }
         if(roleID!=2&&(notice.getForumID()+2)!=roleID)
         {
             return Result.error(1,"该用户没有权限操作");
