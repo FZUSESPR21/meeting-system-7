@@ -4,7 +4,6 @@ import com.team.meeting.model.Notice;
 import com.team.meeting.model.Result;
 import com.team.meeting.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.NullLiteral;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +33,12 @@ public class NoticeController {
     @GetMapping("add")
     public Result addNotice(Notice notice)
     {
-        if(noticeService.addNotice(notice)<=0)
+        int roleID = 2;
+        if(roleID!=2&&(notice.getForumID()+2)!=roleID)
+        {
+            return Result.error(1,"该用户没有权限操作");
+        }
+        else if(noticeService.addNotice(notice)<=0)
         {
             return Result.error(1,"插入数据库失败");
         }
@@ -42,6 +46,12 @@ public class NoticeController {
         {
             return Result.success();
         }
+    }
+
+    @GetMapping("all")
+    public Result<List<Notice>> allNotice()
+    {
+        return Result.success(noticeService.allNotice());
     }
 
 }
