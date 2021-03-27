@@ -1,4 +1,3 @@
-
 <template>
   <el-table
     :data="tableData"
@@ -38,7 +37,6 @@
         console.log(row)
       }
     },
-
     data () {
       return {
         tableData: [{
